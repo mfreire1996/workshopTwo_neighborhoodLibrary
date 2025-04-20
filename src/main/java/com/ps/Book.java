@@ -5,14 +5,14 @@ public class Book {
     private String isbn;
     private String title;
     private boolean isCheckedOut;
-    private String checkoutOutTo;
+    private String checkedOutTo;
 
     public Book(int id, String isbn, String title) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
         this.isCheckedOut = false;
-        this.checkoutOutTo = "";
+        this.checkedOutTo = null;
     }
 
     public int getId() {
@@ -47,22 +47,22 @@ public class Book {
         isCheckedOut = checkedOut;
     }
 
-    public String getCheckoutOutTo() {
-        return checkoutOutTo;
+    public String getCheckedOutTo() {
+        return checkedOutTo;
     }
 
-    public void setCheckoutOutTo(String checkoutOutTo) {
-        this.checkoutOutTo = checkoutOutTo;
+    public void setCheckedOutTo(String checkedOutTo) {
+        this.checkedOutTo = checkedOutTo;
     }
 
-    public void checkOut(String name){
-        isCheckedOut = true;
-        checkoutOutTo = name;
+    // Check out the book (set the user)
+    public void checkOut(String name) {
+        this.isCheckedOut = true;
+        this.checkedOutTo = name;
     }
 
-    public void checkIn(){
-        isCheckedOut = false;
-        checkoutOutTo = "";
+    public void returnBook(){
+        this.isCheckedOut = false;
+        this.checkedOutTo = null;
     }
-
 }
